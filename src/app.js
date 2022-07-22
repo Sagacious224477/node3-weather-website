@@ -6,6 +6,7 @@ const forecast = require('./utils/forecast')
 
 
 const app = express()
+const port = process.env.PORT || 3000
 
 // Define paths to EXpress config.
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -22,14 +23,14 @@ app.use(express.static(publicDirectoryPath))
 
 app.get('', (req, res) => {
   res.render('index', {
-    title: 'Weather App',
+    // title: 'Weather App',
     name: 'Andrew'
   })
 })
 
 app.get('/about', (req, res) => {
   res.render('about', {
-    title: 'About My Page',
+    // title: 'About My Page',
     name: 'Sagacious'
   })
 })
@@ -37,7 +38,7 @@ app.get('/about', (req, res) => {
 app.get('/help', (req, res) => {
   res.render('help', {
     helpText: 'Help Page',
-    title: 'Help',
+    // title: 'Help',
     name: 'Sagacious'
 
   })
@@ -98,6 +99,6 @@ app.get('*', (req, res) => {
   })
 })
 
-app.listen(3000, () => {
-  console.log('Server is up on port 3000')
+app.listen(port, () => {
+  console.log('Server is up on port 3000' + port)
 })
